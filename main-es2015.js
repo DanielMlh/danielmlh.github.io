@@ -219,7 +219,7 @@ let ListCarsComponent = class ListCarsComponent {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
             this.closeForm();
-            yield this.http.post("http:// www.serverapi.somee.com/api/car/", {
+            yield this.http.post("http://www.serverapi.somee.com/api/car/", {
                 CarID: this.car.carNumber,
                 CarType: this.car.carType,
                 Mileage: this.car.mileage,
@@ -240,7 +240,7 @@ let ListCarsComponent = class ListCarsComponent {
             this.typeCar.CarType = this.typeCar.ManufacturerNmae + " " + this.typeCar.Model + " " + year;
             document.getElementById('preloader').style.display = "block";
             this.closeForm();
-            yield this.http.post("http:// www.serverapi.somee.com/api/typecar/", {
+            yield this.http.post("http://www.serverapi.somee.com/api/typecar/", {
                 CarType: this.typeCar.CarType,
                 ManufacturerNmae: this.typeCar.ManufacturerNmae,
                 Model: this.typeCar.Model,
@@ -267,7 +267,7 @@ let ListCarsComponent = class ListCarsComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
-            yield this.http.put("http:// www.serverapi.somee.com/api/car/" + id, {
+            yield this.http.put("http://www.serverapi.somee.com/api/car/" + id, {
                 CarType: cType,
                 Mileage: mileage,
                 Branch: branch,
@@ -285,7 +285,7 @@ let ListCarsComponent = class ListCarsComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
-            yield this.http.put("http:// www.serverapi.somee.com/api/typecar/" + id, {
+            yield this.http.put("http://www.serverapi.somee.com/api/typecar/" + id, {
                 ManufacturerNmae: manufacturerNmae,
                 Model: model,
                 DalyPrice: dalyPrice,
@@ -302,7 +302,7 @@ let ListCarsComponent = class ListCarsComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
-            yield this.http.delete("http:// www.serverapi.somee.com/api/car/" + carId, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
+            yield this.http.delete("http://www.serverapi.somee.com/api/car/" + carId, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
             this.ngOnInit();
             document.getElementById('preloader').style.display = "none";
         });
@@ -312,10 +312,10 @@ let ListCarsComponent = class ListCarsComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
-            yield this.http.put("http:// www.serverapi.somee.com/api/car/" + carId, {
+            yield this.http.put("http://www.serverapi.somee.com/api/car/" + carId, {
                 CarType: 'none', Usable: 'no'
             }, { headers: authHeaders }).toPromise();
-            yield this.http.delete("http:// www.serverapi.somee.com/api/typecar/" + carTypeId, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
+            yield this.http.delete("http://www.serverapi.somee.com/api/typecar/" + carTypeId, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
             this.ngOnInit();
             document.getElementById('preloader').style.display = "none";
         });
@@ -325,8 +325,8 @@ let ListCarsComponent = class ListCarsComponent {
         if (this.userService.userRole() != 'admin' || this.userService.userRole() == undefined) {
             this.router.navigate(['/HomePage']);
         }
-        this.http.get("http:// www.serverapi.somee.com/api/car/").subscribe(t => { this.carList = t; });
-        this.http.get("http:// www.serverapi.somee.com/api/typecar/").subscribe(t => { this.typeList = t, this.typeList2 = t; });
+        this.http.get("http://www.serverapi.somee.com/api/car/").subscribe(t => { this.carList = t; });
+        this.http.get("http://www.serverapi.somee.com/api/typecar/").subscribe(t => { this.typeList = t, this.typeList2 = t; });
     }
 };
 ListCarsComponent.ctorParameters = () => [
@@ -398,13 +398,13 @@ let ListOrdersComponent = class ListOrdersComponent {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
             this.closeForm();
-            yield this.http.post("http:// www.serverapi.somee.com/api/RentCar/", {
+            yield this.http.post("http://www.serverapi.somee.com/api/RentCar/", {
                 CarID: carId,
                 UserID: userId,
                 PickupCar: picupDate,
                 ReturnCar: dropOffDate,
             }, { headers: authHeaders }).toPromise();
-            yield this.http.put("http:// www.serverapi.somee.com/api/Car/" + carId, {
+            yield this.http.put("http://www.serverapi.somee.com/api/Car/" + carId, {
                 Available: 'no',
             }, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
             this.ngOnInit();
@@ -425,7 +425,7 @@ let ListOrdersComponent = class ListOrdersComponent {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
             this.closeForm();
-            yield this.http.put("http:// www.serverapi.somee.com/api/RentCar/" + Id, {
+            yield this.http.put("http://www.serverapi.somee.com/api/RentCar/" + Id, {
                 CarID: carId,
                 PickupCar: picupDate,
                 ReturnCar: dropOffDate,
@@ -441,10 +441,10 @@ let ListOrdersComponent = class ListOrdersComponent {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
             this.closeForm();
-            yield this.http.put("http:// www.serverapi.somee.com/api/Car/" + carNumber, {
+            yield this.http.put("http://www.serverapi.somee.com/api/Car/" + carNumber, {
                 Available: 'yes',
             }, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
-            yield this.http.delete("http:// www.serverapi.somee.com/api/RentCar/" + Id, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
+            yield this.http.delete("http://www.serverapi.somee.com/api/RentCar/" + Id, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
             this.ngOnInit();
             document.getElementById('preloader').style.display = "none";
         });
@@ -454,10 +454,10 @@ let ListOrdersComponent = class ListOrdersComponent {
         if (this.userService.userRole() != 'admin' || this.userService.userRole() == undefined) {
             this.router.navigate(['/HomePage']);
         }
-        this.http.get("http:// www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
-        this.http.get("http:// www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
+        this.http.get("http://www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
         let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
-        this.http.get("http:// www.serverapi.somee.com/api/user/", { headers: authHeaders }).subscribe(h => this.usersList = h);
+        this.http.get("http://www.serverapi.somee.com/api/user/", { headers: authHeaders }).subscribe(h => this.usersList = h);
     }
 };
 ListOrdersComponent.ctorParameters = () => [
@@ -528,7 +528,7 @@ let ListUsersComponent = class ListUsersComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             document.getElementById('preloader').style.display = "block";
             this.closeForm();
-            yield this.http.post("http:// www.serverapi.somee.com/api/user/", {
+            yield this.http.post("http://www.serverapi.somee.com/api/user/", {
                 FirstName: fName,
                 LastName: lName,
                 UserID: id,
@@ -548,7 +548,7 @@ let ListUsersComponent = class ListUsersComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
-            yield this.http.put("http:// www.serverapi.somee.com/api/user/" + id, {
+            yield this.http.put("http://www.serverapi.somee.com/api/user/" + id, {
                 FirstName: f_Nmae,
                 LastName: l_Name,
                 UserID: userId,
@@ -568,7 +568,7 @@ let ListUsersComponent = class ListUsersComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             document.getElementById('preloader').style.display = "block";
-            yield this.http.delete("http:// www.serverapi.somee.com/api/user/" + id, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
+            yield this.http.delete("http://www.serverapi.somee.com/api/user/" + id, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
             this.ngOnInit();
             document.getElementById('preloader').style.display = "none";
         });
@@ -579,7 +579,7 @@ let ListUsersComponent = class ListUsersComponent {
             this.router.navigate(['/HomePage']);
         }
         let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
-        this.http.get("http:// www.serverapi.somee.com/api/user/", { headers: authHeaders }).subscribe(h => this.usersList = h, error => { this.error = error; });
+        this.http.get("http://www.serverapi.somee.com/api/user/", { headers: authHeaders }).subscribe(h => this.usersList = h, error => { this.error = error; });
     }
 };
 ListUsersComponent.ctorParameters = () => [
@@ -667,13 +667,13 @@ let CalcDayPriceComponent = class CalcDayPriceComponent {
     Confirm() {
         this.DropOffDate();
         let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
-        this.http.post("http:// www.serverapi.somee.com/api/RentCar/", {
+        this.http.post("http://www.serverapi.somee.com/api/RentCar/", {
             CarID: this.rentCar.CarID,
             UserID: this.rentCar.UserID,
             PickupCar: this.rentCar.PickupCar,
             ReturnCar: this.rentCar.ReturnCar,
         }, { headers: authHeaders }).subscribe(h => console.log(h));
-        this.http.put("http:// www.serverapi.somee.com/api/Car/" + this.rentCar.CarID, {
+        this.http.put("http://www.serverapi.somee.com/api/Car/" + this.rentCar.CarID, {
             Available: 'no',
         }, { headers: authHeaders }).subscribe(h => console.log(h));
         alert('Your order has been confirmed!');
@@ -790,7 +790,7 @@ let RegisterPageComponent = class RegisterPageComponent {
     }
     //***function adding new user to database */
     Registrarion() {
-        this.http.post("http:// www.serverapi.somee.com/api/user/", {
+        this.http.post("http://www.serverapi.somee.com/api/user/", {
             FirstName: this.user.fName,
             LastName: this.user.lName,
             UserID: this.user.userId,
@@ -858,8 +858,8 @@ let SearchCarComponent = class SearchCarComponent {
         this.userService = userService;
         this.router = router;
         this.today = Date();
-        this.http.get("http:// www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
-        this.http.get("http:// www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
+        this.http.get("http://www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
     }
     //****function to select car by user anf checking if user registered***
     selectCar(car, carType) {
@@ -936,7 +936,7 @@ let UserAllOrdersComponent = class UserAllOrdersComponent {
         if (this.userService.userRole() != 'user' || this.userService.userRole() == undefined) {
             this.router.navigate(['/HomePage']);
         }
-        this.http.get("http:// www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
     }
 };
 UserAllOrdersComponent.ctorParameters = () => [
@@ -1020,9 +1020,9 @@ let UserOrderComponent = class UserOrderComponent {
         if (this.userService.userRole() != 'user' || this.userService.userRole() == undefined) {
             this.router.navigate(['/HomePage']);
         }
-        this.http.get("http:// www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
-        this.http.get("http:// www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
-        this.http.get("http:// www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
+        this.http.get("http://www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
     }
 };
 UserOrderComponent.ctorParameters = () => [
@@ -1146,7 +1146,7 @@ let AppComponent = class AppComponent {
         this.http = http;
         this.userService = userService;
         this.router = router;
-        this.http.get("http:// www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
     }
     //******function returns rolse of users***********
     UserRole() {
@@ -1409,8 +1409,8 @@ let EmployeeComponent = class EmployeeComponent {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Authorization", `Basic ${this.userService.loginUser.UserName}:${this.userService.loginUser.UserPassword}`);
             if (confirm("Are you sure to confirm this payment?")) {
                 document.getElementById('preloader').style.display = "block";
-                yield this.http.put("http:// www.serverapi.somee.com/api/RentCar/" + id, { ReturnCarIndeed: this.today }, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
-                yield this.http.put("http:// www.serverapi.somee.com/api/car/" + carId, { Available: 'yes' }, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
+                yield this.http.put("http://www.serverapi.somee.com/api/RentCar/" + id, { ReturnCarIndeed: this.today }, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
+                yield this.http.put("http://www.serverapi.somee.com/api/car/" + carId, { Available: 'yes' }, { headers: authHeaders }).toPromise().catch(err => alert(err.error));
                 this.ngOnInit();
                 document.getElementById('preloader').style.display = "none";
             }
@@ -1422,9 +1422,9 @@ let EmployeeComponent = class EmployeeComponent {
         if (this.userService.userRole() != 'employee' || this.userService.userRole() == undefined) {
             this.router.navigate(['/HomePage']);
         }
-        this.http.get("http:// www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
-        this.http.get("http:// www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
-        this.http.get("http:// www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/car/").subscribe(t => this.carList = t);
+        this.http.get("http://www.serverapi.somee.com/api/RentCar/").subscribe(t => this.rentCarList = t);
+        this.http.get("http://www.serverapi.somee.com/api/typecar/").subscribe(t => this.typeCarList = t);
     }
 };
 EmployeeComponent.ctorParameters = () => [
@@ -1885,7 +1885,7 @@ class UserService {
     LogIn(userName, password) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let authHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set("Authorization", `Basic ${userName}:${password}`);
-            yield this.http.get("http:// www.serverapi.somee.com/api/user/" + userName, { headers: authHeaders })
+            yield this.http.get("http://www.serverapi.somee.com/api/user/" + userName, { headers: authHeaders })
                 .toPromise().then(h => this.loginUser = h)
                 .catch(x => Promise.reject(`error is ${x}`))
                 .then(x => console.log('login succeeded'), err => console.log('wrong user name or password', err));
